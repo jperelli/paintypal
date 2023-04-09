@@ -1,6 +1,6 @@
 "use client";
 
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Camera, RefreshCw } from 'react-feather';
 import Webcam from "react-webcam";
