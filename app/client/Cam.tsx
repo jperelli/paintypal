@@ -104,18 +104,32 @@ export default function Cam() {
       <div style={{ position: "relative", height: '100%', width: '100%' }}>
 
         {/* camera */}
-        <Webcam
-          audio={false}
-          height={windowHeigth}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width={windowWidth}
-          mirrored
-          videoConstraints={{
-            facingMode: cameraFacing,
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-          onClick={capture}
-        />
+        >
+          <Webcam
+            ref={webcamRef}
+            height={windowHeigth}
+            width={windowWidth}
+            audio={false}
+            screenshotFormat="image/jpeg"
+            mirrored={cameraFacing === CameraFacing.USER}
+            videoConstraints={{
+              facingMode: cameraFacing,
+            }}
+            onClick={capture}
+          />
+        </div>
 
         {/* dropdown of palettes */}
         <div
